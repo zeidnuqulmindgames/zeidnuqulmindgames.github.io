@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<!-- TKlKFJ -->  
+<head>
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script type="text/javascript" src="script.js"></script>
+</head>
+
+
+<body>
+    <div id="wrapper">
+        <section id="main">
+    <h3>Score: <span id="Scoretext">0</span>
+        <br /> accuracy: <span id="accText">100</span>%
+        <br />time remaining: <span id="timeText">0 </span>
+    </h3>
+
+    <div id="word"></div>
+    <div id="color"></div>
+    <br>
+    <button id="startB" onclick="start()" type="button">Start!</button>
+    <button id="matchB" class="hide" onclick="match(true)">Match </button>
+    <button id="notB" class="hide" onclick="match(false)"> Not match</button>
+    </section>
+    <footer>
+                            <ul class="icons">
+                                <li><a href="#" class="fa-twitter">Twitter</a></li>
+                                <li><a href="#" class="fa-instagram">Instagram</a></li>
+                                <li><a href="#" class="fa-facebook">Facebook</a></li>
+                            </ul>
+                        </footer>
+                    </section>
+
+                <!-- Footer -->
+                    <footer id="footer">
+                        <ul class="copyright">
+                            <li>&copy; Zeid Nuqul</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+                        </ul>
+                    </footer>
+
+            </div>
+
+        <!-- Scripts -->
+            <!--[if lte IE 8]><script src="assets/js/respond.min.js"></script><![endif]-->
+            <script>
+                if ('addEventListener' in window) {
+                    window.addEventListener('load', function() { document.body.className = document.body.className.replace(/\bis-loading\b/, ''); });
+                    document.body.className += (navigator.userAgent.match(/(MSIE|rv:11\.0)/) ? ' is-ie' : '');
+                }
+            </script>
+
+</body>
+
+</html>
