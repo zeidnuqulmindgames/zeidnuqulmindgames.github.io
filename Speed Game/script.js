@@ -1,25 +1,27 @@
-var colors = ["black", "green", "blue", "yellow", "pink", "gray", "red","orange"]
 
-var wordName;
-var colorName;
-var colorStyle;
+var colors = ["cyan", "green", "blue", "yellow", "pink"]
+
+var lastCard;
+var currentCard;
 
 var score = 0;
 var attempts = 0;
 var time = 60;
-var tick;
+var tick; // this is to set the timer(). Very IMPORTANT!
+var level
+
 
 function start() {
     startB.classList.add("hide");
     matchB.classList.remove("hide");
     notB.classList.remove("hide");
-    score = 0;
+     score = 0;
     attempts = 0;
     time = 60;
     level= 2;
     choose();
   timer();
-  setInterval(timer,1000);
+  tick= setInterval(timer,1000);
    window.addEventListener('keydown', arrows);
 }
 
@@ -38,22 +40,23 @@ function arrows(key) {
 
 function choose() {
 
-    wordName = colors[Math.floor(Math.random() * 5)];
+  lastCard = currentCard;
+
+    currentCard = colors[Math.floor(Math.random() * 5)];
     colorName = colors[Math.floor(Math.random() * 5)];
     colorStyle = colors[Math.floor(Math.random() * 5)];
 
     if (Math.random() < 0.4) {
-        colorStyle = wordName;
+        currentCard = lastCard;
     } else {
-        colorStyle = colors[Math.floor(Math.random() * 5)];
+        currentCard = colors[Math.floor(Math.random() * 5)];
     }
-    word.innerHTML = wordName;
-    color.innerHTML = colorName;
-    color.style.color = colorStyle;
+   
+    color.style.background = currentCard;
 }
 
 function match(guess) {
-    if (guess == (wordName == colorStyle)) {
+    if (guess == (lastCard == currentCard)) {
         // alert("correct")
         score++;
     } else {
@@ -63,26 +66,9 @@ function match(guess) {
     attempts++;
     Scoretext.innerHTML = score;
     accText.innerHTML = (score * 100 / attempts).toFixed(1);
-    switch (score) {
-      case 10:
-      level = 4;
-      break;
-    case 20:
-      level = 5;
-      break;
-    case 30:
-      level = 6;
-      break;
-     case 40:
-      level = 7;
-      break;
-     case 50:
-      level = 8;
-      break;
-       
-       
-    }
-    choose();
+     color.style.background = "black";
+     setTimeout(choose, 50);
+    
 }
 
 
